@@ -1,5 +1,16 @@
 {
+  "/Review/review": "pages/Review/review.html",
+  "/Review/reviewOne": "pages/Review/reviewOne.html",
   "/_app": "pages/_app.js",
+  "/about": "pages/about.html",
+  "/api/hello": "pages/api/hello.js",
+  "/gyojung": "pages/gyojung.html",
+  "/implant": "pages/implant.html",
+  "/": "pages/index.html",
+  "/itmom": "pages/itmom.html",
+  "/mobileIndex": "pages/mobileIndex.html",
+  "/simmi": "pages/simmi.html",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
 }
