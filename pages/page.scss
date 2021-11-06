@@ -1,0 +1,66 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'noto_serif';
+  //src: url("/public/font/Noto_Serif_KR/NotoSerifKR-ExtraLight.otf");
+  src: url("/../font/Noto_Serif_KR/NotoSerifKR-ExtraLight.otf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'noto_serif';
+  //src: url("/public/font/Noto_Serif_KR/NotoSerifKR-Light.otf");
+  src: url("/../font/Noto_Serif_KR/NotoSerifKR-Light.otf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'noto_serif';
+  src: url("/../font/Noto_Serif_KR/NotoSerifKR-Regular.otf");
+  font-width: 400;
+}
+
+@font-face {
+  font-family: 'noto_serif';
+  src: url("/../font/Noto_Serif_KR/NotoSerifKR-Medium.otf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'noto_serif';
+  src: url("/../font/Noto_Serif_KR/NotoSerifKR-SemiBold.otf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'noto_serif';
+  src: url("/../font/Noto_Serif_KR/NotoSerifKR-Bold.otf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'noto_serif';
+  src: url("/public/font/Noto_Serif_KR/NotoSerifKR-Black.otf");
+  font-weight: 900;
+}
+
+._ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
