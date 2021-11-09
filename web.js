@@ -8,6 +8,8 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next(true);
 const handle = app.getRequestHandler();
 
+console.log('hello world!');
+
 app
   .prepare()
   .then(() => {
