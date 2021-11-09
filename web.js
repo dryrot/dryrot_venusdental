@@ -2,12 +2,15 @@ const express = require("express");
 const next = require("next");
 const approot = require("app-root-path");
 
+console.log(approot.path);
 console.log('ㅎㅇ1');
 const dev = process.env.NODE_ENV !== "production";
 // const dev = true;
-const app = next({
-  dev: dev, dir: './out/pages'
-});
+let payload = {};
+if (dev === false) {
+  payload = { dev: dev, dir: '/home/hosting_users/dryrot/apps/dryrot_venusdental/' }
+}
+const app = next(payload);
 const handle = app.getRequestHandler();
 
 console.log('ㅎㅇ2');
