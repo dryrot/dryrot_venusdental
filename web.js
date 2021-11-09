@@ -2,8 +2,8 @@ const express = require("express");
 const next = require("next");
 const approot = require("app-root-path");
 
-// const dev = process.env.NODE_ENV !== "production";
-const dev = true;
+const dev = process.env.NODE_ENV !== "production";
+// const dev = true;
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
