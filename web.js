@@ -1,9 +1,9 @@
 const express = require("express");
 const next = require("next");
 const approot = require("app-root-path");
-
+console.log('-------------------------------------------');
 console.log(approot.path);
-console.log('ㅎㅇ1');
+console.log('ㅎㅇ13');
 const dev = process.env.NODE_ENV !== "production";
 // const dev = true;
 let payload = {};
@@ -13,7 +13,7 @@ if (dev === false) {
 const app = next(payload);
 const handle = app.getRequestHandler();
 
-console.log('ㅎㅇ2');
+console.log('ㅎㅇ23');
 app
   .prepare()
   .then(() => {
