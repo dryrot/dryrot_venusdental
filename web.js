@@ -4,7 +4,9 @@ const approot = require("app-root-path");
 
 const dev = process.env.NODE_ENV !== "production";
 // const dev = true;
-const app = next({ dev });
+const app = next({
+  dev: dev, dir: './out/pages'
+});
 const handle = app.getRequestHandler();
 
 app
