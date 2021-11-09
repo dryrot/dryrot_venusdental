@@ -1,21 +1,14 @@
 const express = require("express");
 const next = require("next");
 const approot = require("app-root-path");
-const fs = require('fs');
-fs.readdir('/home/hosting_users/dryrot/apps/dryrot_venusdental', (err, files) => {
-  files.forEach(file => {
-    console.log(file);
-  });
-});
-console.log('-------------------------------------------');
-console.log(approot.path);
 
+console.log('==========================================================');
 const dev = process.env.NODE_ENV !== "production";
 // const dev = true;
 let payload = {};
 console.log('dev', dev);
-if (dev === false) {
-  payload = { dev: dev, dir: '/home/hosting_users/dryrot/apps/dryrot_venusdental' }
+if (dev === true) {
+  payload = { dev: dev, dir: approot.path }
 }
 const app = next(payload);
 const handle = app.getRequestHandler();
