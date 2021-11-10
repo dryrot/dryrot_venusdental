@@ -2,7 +2,7 @@ const express = require("express");
 const next = require("next");
 const approot = require("app-root-path");
 
-console.log('=============================20211110=============================');
+console.log('=============================cc7bff6a5ee2158886afc9a17f94239d is GONE!!!!=============================');
 
 const app = next({ dev: false, dir: approot.path });
 const handle = app.getRequestHandler();
