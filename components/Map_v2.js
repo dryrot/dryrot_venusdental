@@ -137,7 +137,7 @@ const Map2 = (props) => {
       level: 3,
       marker: markers,
     };
-    const map = new window.kakao.maps.StaticMap(mapContainer, mapOptions);
+    const map = new kakao.maps.StaticMap(mapContainer, mapOptions);
   }, []);
 
   return (
