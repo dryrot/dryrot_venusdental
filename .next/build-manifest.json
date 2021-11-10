@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/_QtrLUQYGS7RrYEHOh1Vc/_buildManifest.js",
-    "static/_QtrLUQYGS7RrYEHOh1Vc/_ssgManifest.js"
+    "static/A94rzBys78m3mFfx-nYcJ/_buildManifest.js",
+    "static/A94rzBys78m3mFfx-nYcJ/_ssgManifest.js"
   ],
   "pages": {
     "/": [
@@ -16,7 +16,7 @@
       "static/chunks/158-2a53168a5ee8b38af793.js",
       "static/css/5ad8b495e059834876f7.css",
       "static/chunks/693-c9a1809ef5081ab61b49.js",
-      "static/chunks/55-519c00a591cb33efad1e.js",
+      "static/chunks/55-a5b90df9b66e5c52b248.js",
       "static/chunks/pages/index-adbb41babf6a4afcf5dc.js"
     ],
     "/Review/review": [
@@ -83,7 +83,7 @@
       "static/chunks/framework-92300432a1172ef1338b.js",
       "static/chunks/main-4777350f2a9ff73ea2b0.js",
       "static/css/5ad8b495e059834876f7.css",
-      "static/chunks/55-519c00a591cb33efad1e.js",
+      "static/chunks/55-a5b90df9b66e5c52b248.js",
       "static/chunks/pages/mobileIndex-777a84c3945bb30c1b32.js"
     ],
     "/simmi": [

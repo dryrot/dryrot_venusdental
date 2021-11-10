@@ -327,7 +327,7 @@ const MobileIndex = () => {
           <MapBox>
             <script
               type="text/javascript"
-              src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc7bff6a5ee2158886afc9a17f94239d"
+              src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6014a162109085f1166e97d2dd503983"
             />
             <div id="map_container_mobile" />
           </MapBox>
