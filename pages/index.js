@@ -167,6 +167,8 @@ export default function Home() {
     });
   });
 
+  console.log('!!!!!!!!!!!!!!!!!!!');
+
   return (
     <>
       <Head>

@@ -116,29 +116,28 @@ const Map2 = (props) => {
   `;
 
   useEffect(() => {
+    const mapCenter = new kakao.maps.LatLng(
+      37.525111197891455,
+      127.02800845792338
+    );
 
-    // const mapCenter = new window.kakao.maps.LatLng(
-    //   37.525111197891455,
-    //   127.02800845792338
-    // );
-    //
-    // const clinicCoor = new window.kakao.maps.LatLng(
-    //   37.524060723212266,
-    //   127.02799512416581
-    // );
-    // const mapContainer = document.getElementById("map_container");
-    // const markers = [
-    //   {
-    //     position: clinicCoor,
-    //     text: "비너스 치과",
-    //   },
-    // ];
-    // const mapOptions = {
-    //   center: mapCenter,
-    //   level: 3,
-    //   marker: markers,
-    // };
-    // const map = new window.kakao.maps.StaticMap(mapContainer, mapOptions);
+    const clinicCoor = new kakao.maps.LatLng(
+      37.524060723212266,
+      127.02799512416581
+    );
+    const mapContainer = document.getElementById("map_container");
+    const markers = [
+      {
+        position: clinicCoor,
+        text: "비너스 치과",
+      },
+    ];
+    const mapOptions = {
+      center: mapCenter,
+      level: 3,
+      marker: markers,
+    };
+    const map = new window.kakao.maps.StaticMap(mapContainer, mapOptions);
   }, []);
 
   return (
@@ -146,7 +145,7 @@ const Map2 = (props) => {
       <MapBox>
         <script
           type="text/javascript"
-          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cc7bff6a5ee2158886afc9a17f94239d?autoload=false"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=6014a162109085f1166e97d2dd503983"
         />
         <div id="map_container" />
         <AddressBox>

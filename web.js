@@ -3,6 +3,7 @@ const next = require("next");
 const approot = require("app-root-path");
 
 console.log('==========================================================');
+
 const app = next({ dev: false, dir: approot.path });
 const handle = app.getRequestHandler();
 

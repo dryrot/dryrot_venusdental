@@ -80,8 +80,6 @@ const deviceSizes = {
   desktop: [1921, 10000]
 };
 /* harmony default export */ var media = (Object.keys(deviceSizes).reduce((acc, label) => {
-  console.log(acc, label, deviceSizes[label]);
-
   acc[label] = (...args) => (0,external_styled_components_.css)(["@media (min-width:", "px) and (max-width:", "px){", ";}"], deviceSizes[label][0], deviceSizes[label][1], (0,external_styled_components_.css)(...args));
 
   return acc;

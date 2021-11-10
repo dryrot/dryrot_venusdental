@@ -9,7 +9,6 @@ const deviceSizes = {
 };
 
 export default Object.keys(deviceSizes).reduce((acc, label) => {
-  console.log(acc, label, deviceSizes[label]);
   acc[label] = (...args) => css`
     @media (min-width: ${deviceSizes[
         label
