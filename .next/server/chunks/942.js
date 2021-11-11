@@ -68,7 +68,7 @@ const Navigator = () => {
   const VNavi = external_styled_components_default().div.withConfig({
     displayName: "Navigator__VNavi",
     componentId: "sc-1na1vfa-0"
-  })(["display:flex;border-bottom:1px solid #4a4e69;width:calc(100vw - 500px);", " ", " ", ""], ({
+  })(["display:flex;border-bottom:1px solid #4a4e69;width:calc(100vw - 10%);", " ", " ", ""], ({
     theme
   }) => theme.mobile`
       width: 100vw;
@@ -77,12 +77,12 @@ const Navigator = () => {
       padding-bottom: 10px;
     `, ({
     theme
-  }) => theme.laptop`
-        width: calc(100vw - 100px);
+  }) => theme.retina`
+        width: calc(100vw - 22%);
     `, ({
     theme
   }) => theme.desktop`
-        width: calc(100vw - 2000px);
+        width: calc(100vw - 60%);
     `);
   const NaviBox = external_styled_components_default().div.withConfig({
     displayName: "Navigator__NaviBox",

@@ -29,7 +29,7 @@ const ReviewPreview = (props) => {
   const ReviewBox = styled.div`
     display: flex;
     width: 100%;
-    height: 100%;
+    height: 700px;
     background-color: #fff;
     box-shadow: 0px 1px 2px #00000030;
     font-size: ${(props) => props.theme.fontSize.default};
@@ -50,6 +50,10 @@ const ReviewPreview = (props) => {
     font-size: ${(props) => props.theme.fontSize.semiBold};
     font-weight: 400;
     line-height: 3;
+    
+    ${({ theme }) => theme.desktop`
+       padding-left: 60px;
+    `}
   `;
 
   const ReviewImageBox = styled.div`
@@ -66,11 +70,6 @@ const ReviewPreview = (props) => {
       height: 100%;
       overflow: hidden;
     }
-
-    ${({ theme }) => theme.desktop`
-        width: calc(100vw - 2000px);
-        height: auto;
-    `}
 
     ${({ theme }) => theme.mobile`
         display: none;
@@ -102,6 +101,9 @@ const ReviewPreview = (props) => {
     ._review_list {
       border-left: 1px solid;
       padding-left: 20px;
+      ${({ theme }) => theme.desktop`
+        padding-left: 60px;
+    `}
     }
 
     ${({ theme }) => theme.mobile`

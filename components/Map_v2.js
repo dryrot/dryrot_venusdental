@@ -13,13 +13,9 @@ const Map2 = (props) => {
 
     box-shadow: 0px 1px 2px #00000030;
     #map_container {
-      //width: 100%;
-      ////height: 400px;
-      //    height: 60%;
-
-      width: 50%;
-      height: 100%;
-
+            width: 565px;
+      height: 600px;
+      
       border-bottom: 1px solid #ddd;
     }
 
@@ -43,7 +39,7 @@ const Map2 = (props) => {
     justify-content: center;
     width: 100%;
     background-color: #c9ada7;
-    height: 100%;
+    height: 600px;
     box-sizing: border-box;
     padding: 30px 50px;
 

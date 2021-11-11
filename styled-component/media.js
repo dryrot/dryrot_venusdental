@@ -16,5 +16,7 @@ export default Object.keys(deviceSizes).reduce((acc, label) => {
       ${css(...args)};
     }
   `;
+
+  console.log(acc, label);
   return acc;
 }, {});

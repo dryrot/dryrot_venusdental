@@ -8,6 +8,7 @@ import ReviewPreview from "../components/ReviewPreview";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import MobileIndex from "./mobileIndex";
+import Link from "next/link";
 
 export default function Home() {
   const Desktop = styled.div`
@@ -69,20 +70,22 @@ export default function Home() {
     align-items: center;
     justify-items: center;
     justify-content: center;
-    width: calc(100% - 500px);
+    width: calc(100% - 450px);
     //height: 620px;
-    height: calc(100vh - 240px);
-
+    height: auto;
     &.imageBox {
       overflow: hidden;
       box-shadow: -1px 1px 4px #51515157;
-      height: calc(100vh - 265px);
     }
 
     ${({ theme }) => theme.desktop`
         width: calc(100vw - 2000px);
-        height: auto;
+        height: auto !important;
     `}
+    // ${({ theme }) => theme.retina`
+    //     height: calc(100vh - 265px);
+    // `}
+   
 
     ${({ theme }) => theme.mobile`
         width: 100%;
@@ -167,7 +170,7 @@ export default function Home() {
     });
   });
 
-  console.log('!!!!!!!!!!!!!!!!!!!');
+  console.log("!!!!!!!!!!!!!!!!!!!");
 
   return (
     <>
@@ -185,7 +188,7 @@ export default function Home() {
             <ContentsBox violet>
               <Contents className="imageBox">
                 <img
-                  src="/image/main_image.jpg"
+                  src="/image/main_image2.jpg"
                   width="100%"
                   height="auto"
                   alt=""
@@ -198,34 +201,42 @@ export default function Home() {
             <VenusTitle text="치료 분야" underline={true} />
             <ContentsBox className="diff">
               <Contents>
-                <ImgBox>
-                  <img
-                    src="/image/home_profession_1.jpg"
-                    alt="이미지를 불러올 수 없습니다."
-                  />
-                  <span>앞니 심미보철</span>
-                </ImgBox>
-                <ImgBox>
-                  <img
-                    src="/image/home_profession_2.jpg"
-                    alt="이미지를 불러올 수 없습니다."
-                  />
-                  <span>앞니 잇몸치료</span>
-                </ImgBox>
-                <ImgBox>
-                  <img
-                    src="/image/home_profession_3.jpg"
-                    alt="이미지를 불러올 수 없습니다."
-                  />
-                  <span>임플란트</span>
-                </ImgBox>
-                <ImgBox>
-                  <img
-                    src="/image/home_profession_4.jpg"
-                    alt="이미지를 불러올 수 없습니다."
-                  />
-                  <span>앞니교정</span>
-                </ImgBox>
+                <Link href="/simmi">
+                  <ImgBox>
+                    <img
+                      src="/image/home_profession_1.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
+                    <span>앞니 심미보철</span>
+                  </ImgBox>
+                </Link>
+                <Link href="/itmom">
+                  <ImgBox>
+                    <img
+                      src="/image/home_profession_2.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
+                    <span>앞니 잇몸치료</span>
+                  </ImgBox>
+                </Link>
+                <Link href="/implant">
+                  <ImgBox>
+                    <img
+                      src="/image/home_profession_3.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
+                    <span>임플란트</span>
+                  </ImgBox>
+                </Link>
+                <Link href="/gyojung">
+                  <ImgBox>
+                    <img
+                      src="/image/home_profession_4.jpg"
+                      alt="이미지를 불러올 수 없습니다."
+                    />
+                    <span>앞니교정</span>
+                  </ImgBox>
+                </Link>
               </Contents>
             </ContentsBox>
           </Section>

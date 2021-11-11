@@ -82,6 +82,7 @@ const deviceSizes = {
 /* harmony default export */ var media = (Object.keys(deviceSizes).reduce((acc, label) => {
   acc[label] = (...args) => (0,external_styled_components_.css)(["@media (min-width:", "px) and (max-width:", "px){", ";}"], deviceSizes[label][0], deviceSizes[label][1], (0,external_styled_components_.css)(...args));
 
+  console.log(acc, label);
   return acc;
 }, {}));
 ;// CONCATENATED MODULE: ./pages/_app.js

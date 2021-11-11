@@ -145,28 +145,20 @@ const MobileIndex = () => {
     displayName: "mobileIndex__InfoLine",
     componentId: "sc-1ksrw7h-21"
   })(["width:50%;height:1px;background-color:", ";margin-left:42px;"], props => props.theme.lightBeige);
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {// const mapCenter = new kakao.maps.LatLng(
-    //   37.525111197891455,
-    //   127.02800845792338
-    // );
-    //
-    // const clinicCoor = new kakao.maps.LatLng(
-    //   37.524060723212266,
-    //   127.02799512416581
-    // );
-    // const mapContainer = document.getElementById("map_container_mobile");
-    // const markers = [
-    //   {
-    //     position: clinicCoor,
-    //     text: "비너스 치과",
-    //   },
-    // ];
-    // const mapOptions = {
-    //   center: mapCenter,
-    //   level: 3,
-    //   marker: markers,
-    // };
-    // const map = new kakao.maps.StaticMap(mapContainer, mapOptions);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    const mapCenter = new kakao.maps.LatLng(37.525111197891455, 127.02800845792338);
+    const clinicCoor = new kakao.maps.LatLng(37.524060723212266, 127.02799512416581);
+    const mapContainer = document.getElementById("map_container_mobile");
+    const markers = [{
+      position: clinicCoor,
+      text: "비너스 치과"
+    }];
+    const mapOptions = {
+      center: mapCenter,
+      level: 3,
+      marker: markers
+    };
+    const map = new kakao.maps.StaticMap(mapContainer, mapOptions);
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     aos__WEBPACK_IMPORTED_MODULE_3___default().init({

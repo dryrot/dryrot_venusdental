@@ -47,18 +47,19 @@ const Navigator = () => {
   const VNavi = styled.div`
     display: flex;
     border-bottom: 1px solid #4a4e69;
-    width: calc(100vw - 500px);
+    //width: calc(100vw - 500px);
+    width: calc(100vw - 10%);
     ${({ theme }) => theme.mobile`
       width: 100vw;
       margin: 7px;
       border-bottom: 1px solid #4a4e69;
       padding-bottom: 10px;
     `}
-    ${({ theme }) => theme.laptop`
-        width: calc(100vw - 100px);
+    ${({ theme }) => theme.retina`
+        width: calc(100vw - 22%);
     `}
     ${({ theme }) => theme.desktop`
-        width: calc(100vw - 2000px);
+        width: calc(100vw - 60%);
     `}
   `;
 
