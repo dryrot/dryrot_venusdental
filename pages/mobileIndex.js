@@ -173,7 +173,8 @@ const MobileIndex = () => {
     //height: 500px;
 
     #map_container_mobile {
-      width: 100%;
+      width: 100vw;
+      // width: 400px;
       height: 350px;
       margin-top: 10px;
     }

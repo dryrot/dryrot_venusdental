@@ -50,7 +50,7 @@ const ReviewPreview = (props) => {
     font-size: ${(props) => props.theme.fontSize.semiBold};
     font-weight: 400;
     line-height: 3;
-    
+
     ${({ theme }) => theme.desktop`
        padding-left: 60px;
     `}
