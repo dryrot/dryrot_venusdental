@@ -21,6 +21,14 @@ export const Section = styled.div`
        }
      }}
   `}
+
+  ${({ theme }) => theme.tablet`
+     ${(props) => {
+       if (props.disYn === "n") {
+         return " display: none;";
+       }
+     }}
+  `}
 `;
 
 const ContentsBox = styled.div`
@@ -30,7 +38,8 @@ const ContentsBox = styled.div`
 `;
 
 const Contents = styled.div`
-  width: calc(100% - 500px);
+  //width: calc(100% - 500px);
+  width: calc(100% - 30%);
   display: flex;
   align-items: center;
   justify-items: center;
@@ -48,6 +57,16 @@ const Contents = styled.div`
   ${({ theme }) => theme.mobile`
          width: 100vw;
   `}
+
+  ${({ theme }) => theme.tablet`
+    width: 100vw;
+     ${(props) => {
+       if (props.full) {
+         console.log(1111122)
+         return "width: 100vw;";
+       }
+     }}
+  `}
 `;
 
 export const VDiv = (props) => {
@@ -55,7 +74,7 @@ export const VDiv = (props) => {
     <>
       <Section color={props.color} disYn={props.disYn} padding={props.padding}>
         <ContentsBox>
-          <Contents color={props.contColor || props.color}>
+          <Contents color={props.contColor || props.color}  full={props.full}>
             {props.element}
           </Contents>
         </ContentsBox>

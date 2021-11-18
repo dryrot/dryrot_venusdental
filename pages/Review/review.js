@@ -60,6 +60,11 @@ const Review = () => {
           object-fit: cover;
         }
     `}
+
+    ${({ theme }) => theme.tablet`
+          height: 300px;
+        width: 100%;
+       `}
   `;
 
   const BoardBack = styled.div`
@@ -72,16 +77,20 @@ const Review = () => {
   const BoardBox = styled.div`
     width: calc(100% - 500px);
     ${({ theme }) => theme.laptop`
-        width: calc(100vw - 100px);
+        width: calc(100vw - 20%);
         height: 350px;
     `}
     ${({ theme }) => theme.desktop`
-        width: calc(100vw - 2000px);
+        width: calc(100vw - 60%);
         height: auto;
     `}
     ${({ theme }) => theme.mobile`
         width: 100%;
     `}
+
+    ${({ theme }) => theme.tablet`
+        width: calc(100% - 10%);
+       `}
   `;
 
   return (

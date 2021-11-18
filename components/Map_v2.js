@@ -13,9 +13,9 @@ const Map2 = (props) => {
 
     box-shadow: 0px 1px 2px #00000030;
     #map_container {
-            width: 565px;
+      width: 565px;
       height: 600px;
-      
+
       border-bottom: 1px solid #ddd;
     }
 
@@ -43,28 +43,16 @@ const Map2 = (props) => {
     box-sizing: border-box;
     padding: 30px 50px;
 
-    .l3_icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 20px;
-      height: 20px;
-      margin: -1px 4px 0px 10px;
-      padding-top: 2px;
-      font-size: 13px;
-      text-align: center;
-      background-color: #fff;
-      border: 2px solid #f57b47;
-      font-weight: 400;
-      color: #f57b47;
-      border-radius: 50%;
-    }
-
     ${({ theme }) => theme.mobile`
        padding: 18px;
        & div:first-child {
         margin-top: 0;
        }
+    `}
+    
+       ${({ theme }) => theme.tablet`
+               padding: 10px 15px;
+
     `}
   `;
 
@@ -96,6 +84,11 @@ const Map2 = (props) => {
         font-size: ${theme.mFontSize.reviewSmall};
             word-break: keep-all;
     `}
+     
+          ${({ theme }) => theme.tablet`
+              font-size: ${theme.mFontSize.default};
+
+    `}
   `;
 
   const AddressTitle = styled.div`
@@ -108,6 +101,11 @@ const Map2 = (props) => {
         font-weight: 600;
         margin-top: 15px;
         
+    `}
+    ${({ theme }) => theme.tablet`
+        font-size: ${theme.mFontSize.semiBold};
+        font-weight: 600;
+        margin-top: 15px;
     `}
   `;
 

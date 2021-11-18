@@ -21,10 +21,14 @@ const BeforeAfter = props => {
   const BeAfBox = styled_components__WEBPACK_IMPORTED_MODULE_2___default().div.withConfig({
     displayName: "BeforeAfter__BeAfBox",
     componentId: "sc-2wl86f-0"
-  })(["width:100%;height:", ";", ""], props.imgHeight || "600px", ({
+  })(["width:100%;height:", ";", " ", ""], props.imgHeight || "600px", ({
     theme
   }) => theme.mobile`
      max-height: 200px;
+  `, ({
+    theme
+  }) => theme.tablet`
+     max-height: 400px;
   `);
   const BeAfContents = styled_components__WEBPACK_IMPORTED_MODULE_2___default().div.withConfig({
     displayName: "BeforeAfter__BeAfContents",
@@ -33,7 +37,12 @@ const BeforeAfter = props => {
   const BeAfImage = styled_components__WEBPACK_IMPORTED_MODULE_2___default().div.withConfig({
     displayName: "BeforeAfter__BeAfImage",
     componentId: "sc-2wl86f-2"
-  })(["position:absolute;width:100%;height:100%;background-image:url(", ");background-size:cover;background-repeat:no-repeat;background-position:center top;&:last-child{animation-name:fade;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-duration:3s;animation-direction:alternate;}@keyframes fade{0%{opacity:1;}25%{opacity:1;}75%{opacity:0;}100%{opacity:0;}}"], props => props.imgSrc);
+  })(["position:absolute;width:100%;height:100%;background-image:url(", ");background-size:cover;background-repeat:no-repeat;background-position:center top;&:last-child{animation-name:fade;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-duration:3s;animation-direction:alternate;}@keyframes fade{0%{opacity:1;}25%{opacity:1;}75%{opacity:0;}100%{opacity:0;}}", ""], props => props.imgSrc, ({
+    theme
+  }) => theme.tablet`
+        background-size: contain;
+
+  `);
   return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(BeAfBox, {
       children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(BeAfContents, {

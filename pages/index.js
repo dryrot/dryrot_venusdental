@@ -20,7 +20,8 @@ export default function Home() {
   `;
 
   const Section = styled.div`
-    width: 100%;
+    //width: 100%;
+    width: 100vw;
     display: inline-block;
     align-items: baseline;
     justify-content: center;
@@ -70,8 +71,7 @@ export default function Home() {
     align-items: center;
     justify-items: center;
     justify-content: center;
-    width: calc(100% - 450px);
-    //height: 620px;
+    width: calc(100% - 35%);
     height: auto;
     &.imageBox {
       overflow: hidden;
@@ -79,17 +79,15 @@ export default function Home() {
     }
 
     ${({ theme }) => theme.desktop`
-        width: calc(100vw - 2000px);
         height: auto !important;
     `}
-    // ${({ theme }) => theme.retina`
-    //     height: calc(100vh - 265px);
-    // `}
-   
 
     ${({ theme }) => theme.mobile`
         width: 100%;
-        // height: calc(100vh - 365px);
+    `}
+    
+    ${({ theme }) => theme.tablet`
+       width: calc(100% - 15%);
     `}
     
     &.m_img1 {
@@ -161,7 +159,14 @@ export default function Home() {
       color: #fff;
       font-size: ${(props) => props.theme.fontSize.semiBold};
       text-shadow: 1px 1px 2px #0000005e;
+
+      ${({ theme }) => theme.tablet`
+       font-size: 100%;
+    `}
     }
+    ${({ theme }) => theme.tablet`
+       margin-right: 15px;
+    `}
   `;
 
   useEffect(() => {
@@ -169,8 +174,6 @@ export default function Home() {
       duration: 1000,
     });
   });
-
-  console.log("!!!!!!!!!!!!!!!!!!!");
 
   return (
     <>
@@ -198,7 +201,7 @@ export default function Home() {
           </Section>
           {/* End of Section1 */}
           <Section padding="30px 0px 0px 0px">
-            <VenusTitle text="치료 분야" underline={true} />
+            <VenusTitle text="치료 분야" underline={true} index={true} />
             <ContentsBox className="diff">
               <Contents>
                 <Link href="/simmi">
@@ -243,7 +246,7 @@ export default function Home() {
           {/* End of Section2 */}
 
           <Section padding="30px 0px 0px 0px">
-            <VenusTitle text="후기" underline={true} />
+            <VenusTitle text="후기" underline={true} index={true} />
             {/* <Section beige> */}
             <ContentsBox>
               <Contents>

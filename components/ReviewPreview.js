@@ -50,9 +50,14 @@ const ReviewPreview = (props) => {
     font-size: ${(props) => props.theme.fontSize.semiBold};
     font-weight: 400;
     line-height: 3;
+    padding-left: 20px;
 
     ${({ theme }) => theme.desktop`
        padding-left: 60px;
+    `}
+    
+    ${({ theme }) => theme.tablet`
+              font-size: ${theme.mFontSize.semiBold};
     `}
   `;
 
@@ -60,7 +65,7 @@ const ReviewPreview = (props) => {
     display: flex;
     align-items: center;
     justify-content: right;
-    width: 40%;
+    width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
@@ -80,8 +85,8 @@ const ReviewPreview = (props) => {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60%;
-    height: 100%;
+        height: 100%;
+    padding: 0px 12px;
     ul {
       list-style: circle;
       padding-left: 0;
@@ -99,7 +104,6 @@ const ReviewPreview = (props) => {
     }
 
     ._review_list {
-      border-left: 1px solid;
       padding-left: 20px;
       ${({ theme }) => theme.desktop`
         padding-left: 60px;
@@ -108,6 +112,10 @@ const ReviewPreview = (props) => {
 
     ${({ theme }) => theme.mobile`
         display: none;
+    `}
+    
+      ${({ theme }) => theme.tablet`
+              font-size: ${theme.mFontSize.default};
     `}
   `;
 

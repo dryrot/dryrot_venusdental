@@ -47,79 +47,49 @@ const Navigator = () => {
   const VNavi = styled.div`
     display: flex;
     border-bottom: 1px solid #4a4e69;
-    //width: calc(100vw - 500px);
-    width: calc(100vw - 10%);
+    width: calc(100vw - 25%);
+    ${({ theme }) => theme.desktop`
+        width: calc(100vw - 60%);
+    `}
     ${({ theme }) => theme.mobile`
       width: 100vw;
       margin: 7px;
       border-bottom: 1px solid #4a4e69;
       padding-bottom: 10px;
     `}
-    ${({ theme }) => theme.retina`
-        width: calc(100vw - 22%);
-    `}
-    ${({ theme }) => theme.desktop`
-        width: calc(100vw - 60%);
-    `}
+    
+    ${({ theme }) => theme.tablet`
+      width: 100vw;
+      margin: 7px;
+           border-bottom: 1px solid #4a4e69;
+
+      padding-bottom: 10px;    
+      `}
   `;
 
   const NaviBox = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 15px;
     font-size: 25px;
-    font-weight: 400;
-    margin-left: 20px;
+    display: table;
+    width: 100%;
+
     ${({ theme }) => theme.laptop`
         font-size: ${theme.lFontSize.navigator};
     `}
     ${({ theme }) => theme.mobile`
        display: none;
     `}
+    
+     ${({ theme }) => theme.tablet`
+       display: none;
+    `}
   `;
 
   const NaviItem = styled.div`
+    display: table-cell;
+    width: 16.666666667%;
+    line-height: 87px;
     text-align: center;
-    &._12 {
-      width: 12%;
-      margin: 20px;
-    }
-
-    &._20 {
-      width: 20%;
-    }
-
-    &._25 {
-      width: 25%;
-      margin-right: 20px;
-    }
-
-    &:last-child {
-      margin: 0;
-    }
-
-    ${({ theme }) => theme.laptop`
-     &._12 {
-      width: 12%;
-      margin: 10px;
-    }
-
-    &._20 {
-      width: 20%;
-      margin-right: 5px;
-    }
-
-    &._25 {
-      width: 25%;
-      margin-right: 5px;
-    }
-
-    &:last-child {
-      margin: 0;
-    }
-    `}
+    white-space: nowrap;
   `;
 
   const VLogo = styled.div`
@@ -132,6 +102,9 @@ const Navigator = () => {
       height: 57px;
 
     `}
+    ${({ theme }) => theme.tablet`
+       display: none;
+    `}
     ${({ theme }) => theme.mobile`
        display: none;
     `}
@@ -143,12 +116,18 @@ const Navigator = () => {
     ${({ theme }) => theme.mobile`
       display: flex;
     `}
+    ${({ theme }) => theme.tablet`
+       display: flex;
+    `}
   `;
 
   const MNaviBtn = styled.div`
     font-size: 25px;
     ${({ theme }) => theme.mobile`
       display: block;
+    `}
+    ${({ theme }) => theme.tablet`
+       display: block;
     `}
   `;
 
@@ -160,9 +139,12 @@ const Navigator = () => {
     display: none;
     float: left;
     top: 4px;
-    left: calc(100% - 210px);
+    left: calc(100% - 55%);
     position: absolute;
     ${({ theme }) => theme.mobile`
+     display: block;
+    `}
+    ${({ theme }) => theme.tablet`
      display: block;
     `}
   `;

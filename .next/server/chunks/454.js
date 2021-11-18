@@ -23,7 +23,7 @@ exports.modules = {
 const Section = styled_components__WEBPACK_IMPORTED_MODULE_1___default().div.withConfig({
   displayName: "VDiv__Section",
   componentId: "sc-1q7jesg-0"
-})(["width:100%;display:inline-block;align-items:baseline;justify-content:center;padding:60px 0;background-color:", ";", ""], props => props.color === "beige" ? props.theme.lightBeige : "#fff", ({
+})(["width:100%;display:inline-block;align-items:baseline;justify-content:center;padding:60px 0;background-color:", ";", " ", ""], props => props.color === "beige" ? props.theme.lightBeige : "#fff", ({
   theme
 }) => theme.mobile`
      padding: 30px 0;
@@ -36,6 +36,14 @@ const Section = styled_components__WEBPACK_IMPORTED_MODULE_1___default().div.wit
     return `padding: ${props.padding}`;
   }
 }}
+  `, ({
+  theme
+}) => theme.tablet`
+     ${props => {
+  if (props.disYn === "n") {
+    return " display: none;";
+  }
+}}
   `);
 const ContentsBox = styled_components__WEBPACK_IMPORTED_MODULE_1___default().div.withConfig({
   displayName: "VDiv__ContentsBox",
@@ -44,7 +52,7 @@ const ContentsBox = styled_components__WEBPACK_IMPORTED_MODULE_1___default().div
 const Contents = styled_components__WEBPACK_IMPORTED_MODULE_1___default().div.withConfig({
   displayName: "VDiv__Contents",
   componentId: "sc-1q7jesg-2"
-})(["width:calc(100% - 500px);display:flex;align-items:center;justify-items:center;justify-content:center;background-color:", ";", " ", " ", ""], props => props.color === "beige" ? props.theme.lightBeige : "#fff", ({
+})(["width:calc(100% - 30%);display:flex;align-items:center;justify-items:center;justify-content:center;background-color:", ";", " ", " ", " ", ""], props => props.color === "beige" ? props.theme.lightBeige : "#fff", ({
   theme
 }) => theme.laptop`
         width: calc(100vw);
@@ -56,6 +64,16 @@ const Contents = styled_components__WEBPACK_IMPORTED_MODULE_1___default().div.wi
   theme
 }) => theme.mobile`
          width: 100vw;
+  `, ({
+  theme
+}) => theme.tablet`
+    width: 100vw;
+     ${props => {
+  if (props.full) {
+    console.log(1111122);
+    return "width: 100vw;";
+  }
+}}
   `);
 const VDiv = props => {
   return /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
@@ -66,6 +84,7 @@ const VDiv = props => {
       children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(ContentsBox, {
         children: /*#__PURE__*/react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Contents, {
           color: props.contColor || props.color,
+          full: props.full,
           children: props.element
         })
       })

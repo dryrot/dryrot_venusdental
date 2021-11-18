@@ -25,7 +25,7 @@ const Implant = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    padding: 0% 5%;
     ${(props) => {
       if (props.vertical) {
         return `padding: 90px;`;
@@ -142,6 +142,9 @@ const Implant = () => {
     ${({ theme }) => theme.mobile`
      display: block;
   `}
+    ${({ theme }) => theme.tablet`
+     display: block;
+  `}
   `;
   const MImageBox = styled.div`
     align-items: center;
@@ -152,6 +155,13 @@ const Implant = () => {
     height: 425px;
     justify-content: center;
     overflow: hidden;
+
+    ${({ theme }) => theme.tablet`
+     width: 100%;
+     height: 500px;
+     background-position: 0% 0%;
+  `}
+    
   `;
   const MTextBox = styled.div`
     align-items: center;
@@ -164,6 +174,11 @@ const Implant = () => {
     ${Text} {
       margin-top: 30px;
     }
+
+    ${({ theme }) => theme.tablet`
+     width: 100vw;
+     padding: 0% 10%;
+  `}
   `;
 
   return (
@@ -219,23 +234,16 @@ const Implant = () => {
                 <Text>
                   <ul>
                     <li>
-                      앞니 보철에서 비너스가 제안하는 목표는{" "}
-                      <em>없던 일로 돌아가자</em>입니다.
+                      불가항력적으로 앞니가 빠졌을 때는 임플란트를 해야
+                      하지만 앞니 임플란트는 생각보다 못생겨서 깜짝 놀라는
+                      분들이 많습니다.
                     </li>
                   </ul>
                   <ul>
                     <li>
-                      이를 씌우지도, 뽑지도, 신경이 죽지도, 비인간적인 보철을 한
-                      적 없는,
-                    </li>
-                    <li> 아무 일도 없어서 걱정도 없던 시절로 돌아가는 것.</li>
-                  </ul>
-                  <ul>
-                    <li>그러기 위해 두가지 노력을 하는데,</li>
-                  </ul>
-                  <ul>
-                    <li>
-                      <em>자연보호</em>와 <em>자연의 지극한 모방</em>입니다.
+                      <em>‘빼도 박도 못하는 상황’</em>이라고 해야 할까요? 한
+                      번 심은 임플란트는 빼고 다시 심을 수도 없으니 그냥
+                      살아야 하는 분들이 많습니다.
                     </li>
                   </ul>
                 </Text>

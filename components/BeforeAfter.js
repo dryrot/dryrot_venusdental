@@ -8,6 +8,10 @@ const BeforeAfter = (props) => {
     ${({ theme }) => theme.mobile`
      max-height: 200px;
   `}
+
+    ${({ theme }) => theme.tablet`
+     max-height: 400px;
+  `}
   `;
 
   const BeAfContents = styled.div`
@@ -47,6 +51,11 @@ const BeforeAfter = (props) => {
         opacity: 0;
       }
     }
+
+    ${({ theme }) => theme.tablet`
+        background-size: contain;
+
+  `}
   `;
 
   return (

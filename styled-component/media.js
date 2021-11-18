@@ -2,9 +2,9 @@ import { css } from "styled-components";
 
 const deviceSizes = {
   mobile: [0, 414],
-  tablet: [415, 768],
-  laptop: [769, 1280],
-  retina: [1281, 1920],
+  tablet: [415, 1023],
+  laptop: [1024, 1139],
+  retina: [1140, 1920],
   desktop: [1921, 10000],
 };
 
@@ -19,4 +19,4 @@ export default Object.keys(deviceSizes).reduce((acc, label) => {
 
   console.log(acc, label);
   return acc;
-}, {});
+}, {})

@@ -20,7 +20,7 @@ const Gyojung = () => {
     align-items: center;
     justify-content: center;
     //width: 100%;
-    width: calc(100% - 300px);
+    padding: 0% 5%;
     ${(props) => {
       if (props.vertical) {
         return `padding: 90px;`;
