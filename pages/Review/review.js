@@ -2,12 +2,11 @@ import React, { useState, useRef } from "react";
 import Head from "next/head";
 import AppLayout from "../../components/AppLayout";
 import styled from "styled-components";
-import TempReview from "./tempReview.json";
-import TempReviewOne from "./tempReviewOne.json";
+import ReviewJson from "./review.json";
 import ReviewOne from "./reviewOne";
 
 const Review = () => {
-  const tempReview = TempReview;
+  const reviewJson = ReviewJson;
   const Title = styled.div`
     display: flex;
     justify-content: center;
@@ -117,7 +116,7 @@ const Review = () => {
         </ContentsBox>
         <BoardBack>
           <BoardBox>
-            {tempReview.map((item, idx) => {
+            {reviewJson.map((item, idx) => {
               let boxId = `review_${idx}`;
               return (
                 <ReviewOne

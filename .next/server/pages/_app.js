@@ -76,8 +76,9 @@ const deviceSizes = {
   mobile: [0, 414],
   tablet: [415, 1023],
   laptop: [1024, 1139],
-  retina: [1140, 1920],
-  desktop: [1921, 10000]
+  retina: [1140, 1439],
+  laptopB: [1440, 1919],
+  desktop: [1920, 10000]
 };
 /* harmony default export */ var media = (Object.keys(deviceSizes).reduce((acc, label) => {
   acc[label] = (...args) => (0,external_styled_components_.css)(["@media (min-width:", "px) and (max-width:", "px){", ";}"], deviceSizes[label][0], deviceSizes[label][1], (0,external_styled_components_.css)(...args));

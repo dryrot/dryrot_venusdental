@@ -52,6 +52,8 @@ export default function Home() {
     justify-content: center;
     width: 100%;
     flex-shrink: 0;
+    //height: 600px;
+    overflow: hidden;
 
     ${(props) => {
       if (props.violet) {
@@ -64,6 +66,9 @@ export default function Home() {
         display: none;
     `}
     }
+    
+
+    
   `;
 
   const Contents = styled.div`
@@ -73,9 +78,27 @@ export default function Home() {
     justify-content: center;
     width: calc(100% - 35%);
     height: auto;
-    &.imageBox {
-      overflow: hidden;
-      box-shadow: -1px 1px 4px #51515157;
+    //&.imageBox {
+    //  overflow: hidden;
+    //  box-shadow: -1px 1px 4px #51515157;
+    //}
+    
+    .imageBox {
+      width: 100%;
+      height: 600px;
+      background-image: url("image/main_image.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center 22%;
+      ${({ theme }) => theme.desktop`
+      height: 750px;
+    `}
+      ${({ theme }) => theme.laptop`
+      height: 500px;
+    `}
+      ${({ theme }) => theme.tablet`
+      height: 400px;
+    `}
     }
 
     ${({ theme }) => theme.desktop`
@@ -159,7 +182,9 @@ export default function Home() {
       color: #fff;
       font-size: ${(props) => props.theme.fontSize.semiBold};
       text-shadow: 1px 1px 2px #0000005e;
-
+      ${({ theme }) => theme.laptop`
+       font-size: 100%;
+    `}
       ${({ theme }) => theme.tablet`
        font-size: 100%;
     `}
@@ -190,12 +215,7 @@ export default function Home() {
             <Title>자연스럽게 아름다워지는 치과, 비너스</Title>
             <ContentsBox violet>
               <Contents className="imageBox">
-                <img
-                  src="/image/main_image2.jpg"
-                  width="100%"
-                  height="auto"
-                  alt=""
-                />
+                <div className="imageBox"></div>
               </Contents>
             </ContentsBox>
           </Section>

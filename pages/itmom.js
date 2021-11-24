@@ -26,6 +26,7 @@ const Itmom = () => {
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding: 0 5%;
     ${(props) => {
       if (props.vertical) {
         return `padding: 90px;`;
@@ -217,7 +218,7 @@ const Itmom = () => {
 
             <VDiv
               element={
-                <TextBox>
+                <TextBox horizontal>
                   <Text>
                     <ul>
                       <li>

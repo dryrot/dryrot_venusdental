@@ -8,9 +8,6 @@ const Map2 = (props) => {
     justify-content: center;
     width: 100%;
     height: 100%;
-    margin-right: 12px;
-    //border-radius: 5px;
-
     box-shadow: 0px 1px 2px #00000030;
     #map_container {
       width: 565px;
@@ -41,7 +38,7 @@ const Map2 = (props) => {
     background-color: #c9ada7;
     height: 600px;
     box-sizing: border-box;
-    padding: 30px 50px;
+    padding: 0px 30px;
 
     ${({ theme }) => theme.mobile`
        padding: 18px;
@@ -49,10 +46,8 @@ const Map2 = (props) => {
         margin-top: 0;
        }
     `}
-    
        ${({ theme }) => theme.tablet`
-               padding: 10px 15px;
-
+         padding: 10px 15px;
     `}
   `;
 
@@ -64,7 +59,6 @@ const Map2 = (props) => {
     &:last-child {
       padding-top: 5px;
       font-size: ${(props) => props.theme.fontSize.default}
-      //font-weight: 400;
       border-bottom: 0;
       box-shadow: none;
     }
@@ -82,12 +76,10 @@ const Map2 = (props) => {
      ${({ theme }) => theme.mobile`
         margin: 5px 0px;
         font-size: ${theme.mFontSize.reviewSmall};
-            word-break: keep-all;
+        word-break: keep-all;
     `}
-     
-          ${({ theme }) => theme.tablet`
-              font-size: ${theme.mFontSize.default};
-
+     ${({ theme }) => theme.tablet`
+        font-size: ${theme.mFontSize.default};
     `}
   `;
 

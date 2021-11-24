@@ -58,6 +58,10 @@ const Simmi = () => {
          word-break: normal;
      font-size: ${theme.mFontSize.default};
   `}
+    ${({ theme }) => theme.tablet`
+     width: calc(100% - 100px);
+
+  `}
 
     ul {
       width: 100%;
@@ -194,10 +198,6 @@ const Simmi = () => {
     ${Text} {
       margin: 30px 0px;
     }
-
-    ${({ theme }) => theme.tablet`
-         padding: 0 15%;
-  `}
   `;
 
   const ImageGrid = styled.div`

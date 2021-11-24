@@ -167,7 +167,7 @@ const ReviewOne = (props) => {
           : null}
         <ReviewInfo>
           <div>{review?.author || ""}</div>
-          <div>2021-09-08</div>
+          {/*<div>2021-09-08</div>*/}
         </ReviewInfo>
       </ReviewContent>
       <ReviewMore showYn={showYn}>
