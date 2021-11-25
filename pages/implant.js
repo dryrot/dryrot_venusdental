@@ -82,8 +82,7 @@ const Implant = () => {
 
     ${({ theme }) => theme.mobile`
      text-align: left;
-     width: calc(100% - 50px);
-         word-break: normal;
+     word-break: normal;
      font-size: ${theme.mFontSize.default};
   `}
   `;
@@ -132,6 +131,9 @@ const Implant = () => {
       img {
         width: 100%;
       }
+    `}  
+    ${({ theme }) => theme.laptop`
+      margin-left: 7%;
     `}
   `;
 
@@ -174,6 +176,11 @@ const Implant = () => {
     ${Text} {
       margin-top: 30px;
     }
+
+    ${({ theme }) => theme.mobile`
+     width: 100vw;
+     padding: 0% 5%;
+  `}
 
     ${({ theme }) => theme.tablet`
      width: 100vw;

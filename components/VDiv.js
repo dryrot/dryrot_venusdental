@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React from "react";
+import React, {useEffect} from "react";
 
 export const Section = styled.div`
   width: 100%;
@@ -70,6 +70,11 @@ const Contents = styled.div`
 `;
 
 export const VDiv = (props) => {
+
+  useEffect(() => {
+    document.querySelector("body").classList.remove("no_scrolling");
+  }, [])
+
   return (
     <>
       <Section color={props.color} disYn={props.disYn} padding={props.padding}>

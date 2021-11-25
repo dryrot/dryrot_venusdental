@@ -9,7 +9,7 @@ const RightButton = () => {
     z-index: 10;
 
     ${({ theme }) => theme.mobile`
-      top: calc(100vh - 170px);
+      top: calc(100vh - 200px);
     `}
   `;
 

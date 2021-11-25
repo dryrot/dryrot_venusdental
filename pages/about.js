@@ -132,7 +132,7 @@ const About = () => {
           <Part>
             <VDiv
               element={
-                <TextBox size="700px">
+                <TextBox horizontal size="800px">
                   <Text bigger>
                     <ul className="_bold _m">
                       <li>
@@ -143,6 +143,7 @@ const About = () => {
                 </TextBox>
               }
               color="beige"
+              // padding="30px 0px 0px 0px"
             />
 
             <VDiv

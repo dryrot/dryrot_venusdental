@@ -151,7 +151,7 @@ const Simmi = () => {
      img {
      ${(props) => {
        if (props.img1) {
-         return "width: 100%; margin-left: 45px;";
+         return "width: 100%;";
        }
      }}}
   `}

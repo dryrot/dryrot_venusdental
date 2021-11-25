@@ -118,7 +118,15 @@ const Gyojung = () => {
     }}
 
     img {
-      width: 600px;
+      width: 100%;
+
+      &.main {
+        width: 50%;
+        ${({ theme }) => theme.mobile`
+          width: 100%;
+       `}
+      }
+      
       ${(props) => {
         if (props.size) {
           if (props.size[0] && props.size[1] !== null) {
@@ -196,6 +204,7 @@ const Gyojung = () => {
               element={
                 <ImageBox vertical>
                   <img
+                    className="main"
                     src="/image/gyojung/gyojung_1.jpg"
                     alt="이미지를 불러올 수 없습니다."
                   />

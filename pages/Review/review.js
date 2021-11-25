@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import AppLayout from "../../components/AppLayout";
 import styled from "styled-components";
@@ -37,9 +37,12 @@ const Review = () => {
     justify-items: center;
     justify-content: center;
     width: calc(100% - 500px);
-    height: calc(100vh - 550px);
     overflow: hidden;
     box-shadow: -1px 1px 4px #51515157;
+
+    img {
+      height: inherit;
+    }
 
     ${({ theme }) => theme.laptop`
         width: calc(100vw - 100px);

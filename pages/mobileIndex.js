@@ -134,12 +134,11 @@ const MobileIndex = () => {
   const ReviewFrame = styled.div`
     position: absolute;
     border: 7px solid white;
-    width: calc(100% - 120px);
+    width: calc(100% - 75px);
     height: 300px;
-    margin: 0% 7%;
-    margin-top: 35px;
-    opacity: 0.8;
+    opacity: 0.7;
     z-index: 1;
+    margin-top: 5%;
   `;
 
   const ReviewListBox = styled.div`
@@ -169,12 +168,8 @@ const MobileIndex = () => {
   `;
 
   const MapBox = styled.div`
-    //width: 500px;
-    //height: 500px;
-
     #map_container_mobile {
       width: 100vw;
-      // width: 400px;
       height: 350px;
       margin-top: 10px;
     }
@@ -227,6 +222,8 @@ const MobileIndex = () => {
       marker: markers,
     };
     const map = new kakao.maps.StaticMap(mapContainer, mapOptions);
+
+    document.querySelector("body").classList.remove("no_scrolling");
   }, []);
 
   useEffect(() => {

@@ -200,10 +200,14 @@ export default function Home() {
     });
   });
 
+  useEffect(() => {
+    document.querySelector("body").classList.remove("no_scrolling");
+  }, [])
+
   return (
     <>
       <Head>
-        <title>초기화면 | Venuss</title>
+        <title>Home | Venuss</title>
         <meta
           content="initial-scale=1, maximum-scale=1, user-scalable=0"
           name="viewport"

@@ -143,6 +143,9 @@ const ReviewOne = (props) => {
       font-size: ${theme.mFontSize.review};
     `}
   `;
+  useEffect(() => {
+    document.querySelector("body").classList.remove("no_scrolling");
+  }, []);
 
   return (
     <ReviewBox id={props.id}>

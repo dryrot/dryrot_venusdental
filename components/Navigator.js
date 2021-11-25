@@ -56,7 +56,7 @@ const Navigator = () => {
       border-bottom: 1px solid #4a4e69;
       padding-bottom: 10px;
     `}
-    
+
     ${({ theme }) => theme.tablet`
       width: 100vw;
       margin: 7px;
@@ -67,6 +67,12 @@ const Navigator = () => {
     ${({ theme }) => theme.laptop`
       height: 50px;   
       `}
+    ${({ theme }) => theme.mobile`
+      height: auto;
+    `}
+    ${({ theme }) => theme.tablet`
+       height: auto;
+    `}
   `;
 
   const NaviBox = styled.div`
@@ -97,6 +103,10 @@ const Navigator = () => {
     ${({ theme }) => theme.laptop`
         margin: 5px 13px 0px 0px;
         font-size: 0.7em;
+    `}
+    ${({ theme }) => theme.retina`
+        margin: 10px 0px 30px 25px;
+        font-size: 0.9em;
     `}
     ${({ theme }) => theme.laptopB`
         margin: 10px 10px 30px 18px;
@@ -190,8 +200,7 @@ const Navigator = () => {
 
   const MNaviList = styled.div`
     width: 100%;
-    margin: 0px 0px 75px 40px;
-
+    margin: 0px 0px 5px 40px;
   `;
   const MNaviItem = styled.div`
     border-bottom: 1px solid ${(props) => props.theme.darkestSpace};
@@ -217,20 +226,27 @@ const Navigator = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-  `
+
+    // ${({ theme }) => theme.retina`
+    //  width: calc(100%
+    // `}
+  `;
 
   return (
     <VNavi>
       <MNaviModal className="_closed" ref={modalRef}>
         <MMenuClose
-          onClick={() => {
+          onClick={(e) => {
+            document.querySelector("body").classList.remove("no_scrolling");
             modalRef.current.classList.toggle("_closed");
           }}
         >
           <i className="ri-close-line" />
         </MMenuClose>
         <MNaviList>
-          <MNaviItem className="_home">
+          <MNaviItem
+            className="_home"
+          >
             <Link href="/">Home</Link>
           </MNaviItem>
           {NaviList.map((item) => {
@@ -245,6 +261,7 @@ const Navigator = () => {
       <MNaviBox>
         <MNaviBtn
           onClick={() => {
+            document.querySelector("body").classList.add("no_scrolling");
             modalRef.current.classList.toggle("_closed");
           }}
         >
@@ -260,13 +277,13 @@ const Navigator = () => {
           <VLogo />
         </a>
         <MenuBox>
-        {NaviList.map((item) => {
-          return (
-            <NaviItem className={`_${item.width}`}>
-              <Link href={item.href}>{item.name}</Link>
-            </NaviItem>
-          );
-        })}
+          {NaviList.map((item) => {
+            return (
+              <NaviItem className={`_${item.width}`}>
+                <Link href={item.href}>{item.name}</Link>
+              </NaviItem>
+            );
+          })}
         </MenuBox>
       </NaviBox>
     </VNavi>

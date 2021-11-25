@@ -95,6 +95,7 @@ const Itmom = () => {
 
   const ImageBox = styled.div`
     width: 100%;
+    overflow: hidden;
     ${(props) => {
       if (props.vertical) {
         return (
