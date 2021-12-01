@@ -66,9 +66,6 @@ export default function Home() {
         display: none;
     `}
     }
-    
-
-    
   `;
 
   const Contents = styled.div`
@@ -82,7 +79,7 @@ export default function Home() {
     //  overflow: hidden;
     //  box-shadow: -1px 1px 4px #51515157;
     //}
-    
+
     .imageBox {
       width: 100%;
       height: 600px;
@@ -102,6 +99,7 @@ export default function Home() {
     }
 
     ${({ theme }) => theme.desktop`
+        width: calc(100% - 60%);
         height: auto !important;
     `}
 
@@ -202,7 +200,7 @@ export default function Home() {
 
   useEffect(() => {
     document.querySelector("body").classList.remove("no_scrolling");
-  }, [])
+  }, []);
 
   return (
     <>
@@ -219,7 +217,7 @@ export default function Home() {
             <Title>자연스럽게 아름다워지는 치과, 비너스</Title>
             <ContentsBox violet>
               <Contents className="imageBox">
-                <div className="imageBox"></div>
+                <div className="imageBox" />
               </Contents>
             </ContentsBox>
           </Section>

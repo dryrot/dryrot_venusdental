@@ -1,31 +1,10 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import Review from "/pages/Review/review.json";
 
 const ReviewPreview = (props) => {
-  const reviewTemp = [
-    {
-      author: "jiwon4221",
-      title: "너무 떨렸는데 자고 일어나니 다 끝나있었어요",
-    },
-    { author: "dcast1414", title: "강력 추천합니다!" },
-    {
-      author: "surfwang77",
-      title: "두려움 없이 편히 치료를 받을 수 있었어요~~",
-    },
-    { author: "bosesoundmini", title: "너무 감사하고 좋았습니다" },
-    {
-      author: "jiwon4221",
-      title: "너무 떨렸는데 자고 일어나니 다 끝나있었어요",
-    },
-    { author: "dcast1414", title: "강력 추천합니다!" },
-    {
-      author: "surfwang77",
-      title: "두려움 없이 편히 치료를 받을 수 있었어요~~",
-    },
-    { author: "bosesoundmini", title: "너무 감사하고 좋았습니다" },
-  ];
-
+  const reviewPreview  = Review.slice(0, 9);
   const ReviewBox = styled.div`
     display: flex;
     width: 100%;
@@ -55,7 +34,7 @@ const ReviewPreview = (props) => {
     ${({ theme }) => theme.desktop`
        padding-left: 60px;
     `}
-    
+
     ${({ theme }) => theme.tablet`
               font-size: ${theme.mFontSize.semiBold};
     `}
@@ -85,7 +64,7 @@ const ReviewPreview = (props) => {
     display: flex;
     align-items: center;
     justify-content: center;
-        height: 100%;
+    height: 100%;
     padding: 0px 12px;
     ul {
       list-style: circle;
@@ -113,8 +92,8 @@ const ReviewPreview = (props) => {
     ${({ theme }) => theme.mobile`
         display: none;
     `}
-    
-      ${({ theme }) => theme.tablet`
+
+    ${({ theme }) => theme.tablet`
               font-size: ${theme.mFontSize.default};
     `}
   `;
@@ -171,7 +150,7 @@ const ReviewPreview = (props) => {
         <div className="_review_box">
           <ReviewTitle>치료후기</ReviewTitle>
           <div className="_review_list">
-            {reviewTemp.map((item) => {
+            {reviewPreview.map((item) => {
               return (
                 <ul>
                   <li className="_ellipsis">{item.title}</li>
@@ -190,7 +169,7 @@ const ReviewPreview = (props) => {
       <ReviewImageBox />
       <MReviewBox>
         <MReviewList>
-          {reviewTemp.map((item, idx) => {
+          {reviewPreview.map((item, idx) => {
             if (idx < 4) {
               return (
                 <ul>

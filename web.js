@@ -1,8 +1,27 @@
 const express = require("express");
 const next = require("next");
 const approot = require("app-root-path");
+const mysql = require("mysql");
+const connection = mysql.createConnection({
+  host: "venusdental.co.kr",
+  user: "dryrot",
+  password: "Dryrot1225!db",
+  database: "dryrot",
+  port: "3306",
+});
 
-console.log('=============================2021 11 18=============================');
+connection.connect();
+
+connection.query("SELECT * from REVIEW", (error, rows, fields) => {
+  if (error) throw error;
+  console.log("REVIEW info is: ", rows);
+});
+
+connection.end();
+
+console.log(
+  "=============================2021 11 30============================="
+);
 
 const app = next({ dev: false, dir: approot.path });
 const handle = app.getRequestHandler();
@@ -26,6 +45,14 @@ app
       return app.render(req, res, "/");
     });
 
+    server.get("/Review/review", (req, res) => {
+      console.log("--------------------");
+      connection.query("SELECT * FROM REVIEW", (error, rows) => {
+        if (error) throw error;
+        console.log("REVIEW IS ---->", rows);
+      });
+    });
+
     server.listen(8001, (err) => {
       if (err) throw err;
       console.log("NOW LISTENING!!!!!");
@@ -35,4 +62,3 @@ app
     console.log(ex.stack);
     process.exit(1);
   });
-

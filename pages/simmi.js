@@ -111,7 +111,7 @@ const Simmi = () => {
   const ImageBox = styled.div`
     align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
 
     img {

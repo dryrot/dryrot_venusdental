@@ -5,8 +5,8 @@ const deviceSizes = {
   tablet: [415, 1023],
   laptop: [1024, 1139],
   retina: [1140, 1439],
-  laptopB: [1440, 1919],
-  desktop: [1920, 10000],
+  laptopB: [1440, 2559],
+  desktop: [2560, 10000],
 };
 
 export default Object.keys(deviceSizes).reduce((acc, label) => {

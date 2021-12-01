@@ -51,7 +51,7 @@ const Contents = styled.div`
   `}
 
   ${({ theme }) => theme.desktop`
-        width: calc(100vw - 2000px);
+        width: calc(100vw - 50%);
   `}
 
   ${({ theme }) => theme.mobile`

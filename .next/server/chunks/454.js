@@ -59,7 +59,7 @@ const Contents = styled_components__WEBPACK_IMPORTED_MODULE_1___default().div.wi
   `, ({
   theme
 }) => theme.desktop`
-        width: calc(100vw - 2000px);
+        width: calc(100vw - 50%);
   `, ({
   theme
 }) => theme.mobile`

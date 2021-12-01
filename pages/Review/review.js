@@ -50,7 +50,7 @@ const Review = () => {
     `}
 
     ${({ theme }) => theme.desktop`
-        width: calc(100vw - 2000px);
+        width: calc(100vw - 60%);
         height: auto;
     `}
 

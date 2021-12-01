@@ -99,7 +99,7 @@ const Navigator = () => {
   const NaviBox = external_styled_components_default().div.withConfig({
     displayName: "Navigator__NaviBox",
     componentId: "sc-1na1vfa-1"
-  })(["font-size:22px;width:calc(100% - 35%);position:absolute;top:15px;float:left;box-sizing:border-box;border-bottom:1px solid ", ";", " ", " ", ""], props => props.theme.darkestSpace, ({
+  })(["font-size:22px;width:calc(100% - 35%);position:absolute;top:15px;float:left;box-sizing:border-box;border-bottom:1px solid ", ";", " ", " ", " ", ""], props => props.theme.darkestSpace, ({
     theme
   }) => theme.laptop`
         font-size: ${theme.lFontSize.navigator};
@@ -111,6 +111,10 @@ const Navigator = () => {
     theme
   }) => theme.tablet`
        display: none;
+    `, ({
+    theme
+  }) => theme.desktop`
+      width: calc(100% - 60%);
     `);
   const NaviItem = external_styled_components_default().div.withConfig({
     displayName: "Navigator__NaviItem",

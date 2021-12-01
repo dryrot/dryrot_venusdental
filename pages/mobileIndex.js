@@ -4,6 +4,7 @@ import styled from "styled-components";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
+import Review from "./Review/review.json";
 
 const MobileIndex = () => {
   const MobileIndexBox = styled.div`
@@ -76,7 +77,6 @@ const MobileIndex = () => {
     color: ${(props) => props.theme.darkSpace};
     border-bottom: 1px solid ${(props) => props.theme.darkSpace};
     ${(props) => {
-      console.log(props.float);
       if (props.dark) {
         return `color: ${props.theme.lightBeige}; border-bottom: 1px solid ${props.theme.lightBeige}`;
       }
@@ -309,11 +309,13 @@ const MobileIndex = () => {
         <ReviewBox>
           <ReviewFrame />
           <ReviewListBox>
-            <ReviewList>너무 떨렸는데 자고 일어나니 다 끝나있었어요</ReviewList>
-            <ReviewList>강력 추천합니다!</ReviewList>
-            <ReviewList>너무 감사하고 좋았습니다.</ReviewList>
-            <ReviewList>두려움없이 편히 치료를 받을 수 있었어요</ReviewList>
-            <ReviewList>원장님 믿고있었다구 </ReviewList>
+            { Review.map((item, idx) => {
+              if(idx < 5) {
+                return (<ReviewList>{item.title}</ReviewList>)
+              } else {
+                return null;
+              }
+            })}
           </ReviewListBox>
         </ReviewBox>
       </ReviewSection>

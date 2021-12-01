@@ -96,6 +96,10 @@ const Navigator = () => {
      ${({ theme }) => theme.tablet`
        display: none;
     `}
+
+    ${({ theme }) => theme.desktop`
+      width: calc(100% - 60%);
+    `}
   `;
 
   const NaviItem = styled.div`
@@ -244,9 +248,7 @@ const Navigator = () => {
           <i className="ri-close-line" />
         </MMenuClose>
         <MNaviList>
-          <MNaviItem
-            className="_home"
-          >
+          <MNaviItem className="_home">
             <Link href="/">Home</Link>
           </MNaviItem>
           {NaviList.map((item) => {
