@@ -20,7 +20,7 @@ connection.query("SELECT * from REVIEW", (error, rows, fields) => {
 connection.end();
 
 console.log(
-  "=============================2021 11 30============================="
+  "=============================2021 12 01============================="
 );
 
 const app = next({ dev: false, dir: approot.path });
