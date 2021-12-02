@@ -1,9 +1,80 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import AppLayout from "../../components/AppLayout";
 import styled from "styled-components";
 import ReviewJson from "./review.json";
 import ReviewOne from "./reviewOne";
+import WriteArea from "../../components/WriteArea";
+
+const WriteButtonBox = () => {
+  const [writeOpen, setWriteOpen] = useState(false);
+
+  const WriteButton = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 50px;
+
+    ._review_btn {
+      font-size: 18px;
+      cursor: pointer;
+    }
+    ._review_btn:hover {
+      color: #000;
+    }
+    ._search {
+      margin-right: 15px;
+    }
+    ._write {
+    }
+
+    ._close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      background-color: ${(props) => props.theme.darkSpace};
+      margin-bottom: 2px;
+      color: ${(props) => props.theme.lightBeige};
+    }
+    
+    ._close:hover {
+      color: ${(props) => props.theme.lightBeige};
+    }
+  `;
+
+  return (
+    <>
+      <WriteButton>
+        <span className="_review_btn _search" title="검색">
+          <i className="ri-search-2-line" />
+        </span>
+        {writeOpen === false ? (
+          <span
+            className="_review_btn _write"
+            title="글쓰기"
+            onClick={() => {
+              setWriteOpen(writeOpen !== true);
+            }}
+          >
+            <i className="ri-edit-box-line" />
+          </span>
+        ) : (
+          <span
+            className="_review_btn _close"
+            onClick={() => {
+              setWriteOpen(writeOpen !== true);
+            }}
+          >
+            <i className="ri-close-line" />
+          </span>
+        )}
+      </WriteButton>
+      <WriteArea writeOpen={writeOpen} />
+    </>
+  );
+};
 
 const Review = () => {
   const reviewJson = ReviewJson;
@@ -119,6 +190,7 @@ const Review = () => {
         </ContentsBox>
         <BoardBack>
           <BoardBox>
+            <WriteButtonBox />
             {reviewJson.map((item, idx) => {
               let boxId = `review_${idx}`;
               return (

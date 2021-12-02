@@ -51,7 +51,7 @@ const getHeight = id => {
 const ReviewContent = styled_components__WEBPACK_IMPORTED_MODULE_2___default().div.withConfig({
   displayName: "reviewOne__ReviewContent",
   componentId: "sc-15dw4hl-2"
-})(["position:relative;width:100%;padding:0px 60px;height:", ";transition:height 0.7s ease-out;", ""], props => props.showYn === true ? getHeight(props.boxId) : "200px", ({
+})(["position:relative;width:100%;padding:0px 30px;height:", ";transition:height 0.7s ease-out;", ""], props => props.showYn === true ? getHeight(props.boxId) : "200px", ({
   theme
 }) => theme.mobile`
     padding: 12px;
@@ -76,7 +76,7 @@ const ReviewOne = props => {
   const ReviewTitle = styled_components__WEBPACK_IMPORTED_MODULE_2___default().div.withConfig({
     displayName: "reviewOne__ReviewTitle",
     componentId: "sc-15dw4hl-4"
-  })(["float:left;width:100%;font-weight:400;padding:25px 60px;border-bottom:1px solid #ccc;margin-bottom:40px;font-size:22px;._title{float:left;}._author{float:right;display:flex;align-items:center;margin-left:20px;color:#979cc0;font-weight:200;font-size:20px;i{margin:0px 10px -7px 0px;}", "}._line{float:left;width:40px;height:50%;border-bottom:1px solid #fff;}._more{float:right;", "}", ""], ({
+  })(["float:left;width:100%;font-weight:400;padding:15px 30px;border-bottom:1px solid #ccc;margin-bottom:40px;font-size:22px;._title{float:left;}._author{float:right;display:flex;align-items:center;margin-left:20px;color:#979cc0;font-weight:200;font-size:20px;i{margin:0px 10px -7px 0px;}", "}._line{float:left;width:40px;height:50%;border-bottom:1px solid #fff;}._more{float:right;", "}", ""], ({
     theme
   }) => theme.mobile`
       font-size: ${theme.mFontSize.reviewSmall};

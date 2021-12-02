@@ -7,33 +7,61 @@ const RightButton = () => {
     top: 200px;
     right: 0;
     z-index: 10;
-
+    width: 70px;
+    height: 70px;
     ${({ theme }) => theme.mobile`
       top: calc(100vh - 200px);
+      width: 50px;
+      height: 50px;
+       ${(props) => {
+         if (props.round) {
+           return "top: calc(100vh - 80px); right: 5px; width: 40px; height: 40px;";
+         }
+       }}
     `}
+
+    ${({ theme }) => theme.tablet`
+      top: calc(100vh - 200px);
+      width: 50px;
+      height: 50px;
+       ${(props) => {
+         if (props.round) {
+           return "top: calc(100vh - 80px); right: 5px; width: 40px; height: 40px;";
+         }
+       }}
+    `}
+
+    ${(props) => {
+      if (props.round) {
+        return "top: 400px; right: 5px; width: 60px; height: 60px;";
+      }
+    }}
   `;
 
   const Button = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70px;
-    height: 70px;
+    width: 100%;
+    height: 100%;
     margin-bottom: 10px;
     box-shadow: 0px 1px 2px #00000030;
     cursor: pointer;
 
-    &:first-child {
-      background-color: #3eaf0e;
-    }
-
-    &:nth-child(2) {
-      background-color: #ff0000;
-    }
+    ${(props) => {
+      if (props.blog) {
+        return "background-color: #3eaf0e;";
+      } else if (props.youtube) {
+        return "background-color: #ff0000;";
+      } else if (props.login) {
+        return `border-radius: 50%; background-color: #f7f0ed;`;
+      } else if (props.top) {
+        return `border-radius: 50%; background-color: ${props.theme.darkSpace};`;
+      }
+    }}
 
     ${({ theme }) => theme.mobile`
-      width: 50px;
-      height: 50px;
+
     `}
   `;
 
@@ -48,6 +76,11 @@ const RightButton = () => {
       width: 50px;
       height: 50px;
     `}
+
+    ${({ theme }) => theme.tablet`
+      width: 45px;
+      height: 45px;
+    `}
   `;
 
   const YoutubeButton = styled.div`
@@ -60,6 +93,19 @@ const RightButton = () => {
       width: 30px;
       height: 30px;
     `}
+
+    ${({ theme }) => theme.tablet`
+      width: 30px;
+      height: 30px;
+    `}
+  `;
+
+  const LoginButton = styled.div``;
+
+  const TopButton = styled.div`
+    margin-top: 2px;
+    color: ${(props) => props.theme.lightBeige};
+    font-size: 25px;
   `;
 
   const linkEvent = (flag) => {
@@ -75,22 +121,42 @@ const RightButton = () => {
   };
 
   return (
-    <RightButtonBox>
-      <Button>
-        <BlogButton
-          onClick={() => {
-            linkEvent("blog");
-          }}
-        />
-      </Button>
-      <Button>
-        <YoutubeButton
-          onClick={() => {
-            linkEvent("youtube");
-          }}
-        />
-      </Button>
-    </RightButtonBox>
+    <>
+      <RightButtonBox>
+        <Button blog>
+          <BlogButton
+            onClick={() => {
+              linkEvent("blog");
+            }}
+          />
+        </Button>
+        <Button youtube>
+          <YoutubeButton
+            onClick={() => {
+              linkEvent("youtube");
+            }}
+          />
+        </Button>
+      </RightButtonBox>
+
+      <RightButtonBox round>
+        <Button top>
+          <TopButton
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+          >
+            <i className="ri-arrow-up-fill" />
+          </TopButton>
+        </Button>
+        {/*<Button login>*/}
+        {/*  <LoginButton>*/}
+        {/*    <i className="ri-user-fill" />*/}
+        {/*  </LoginButton>*/}
+        {/*</Button>*/}
+      </RightButtonBox>
+    </>
   );
 };
 

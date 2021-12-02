@@ -56,7 +56,7 @@ const getHeight = (id) => {
 const ReviewContent = styled.div`
   position: relative;
   width: 100%;
-  padding: 0px 60px;
+  padding: 0px 30px;
   height: ${(props) =>
     props.showYn === true ? getHeight(props.boxId) : "200px"};
   transition: height 0.7s ease-out;
@@ -84,7 +84,7 @@ const ReviewOne = (props) => {
     float: left;
     width: 100%;
     font-weight: 400;
-    padding: 25px 60px;
+    padding: 15px 30px;
     border-bottom: 1px solid #ccc;
     margin-bottom: 40px;
     font-size: 22px;
@@ -170,7 +170,7 @@ const ReviewOne = (props) => {
           : null}
         <ReviewInfo>
           <div>{review?.author || ""}</div>
-          {/*<div>2021-09-08</div>*/}
+          {/* <div>2021-09-08</div> */}
         </ReviewInfo>
       </ReviewContent>
       <ReviewMore showYn={showYn}>

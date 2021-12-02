@@ -62,7 +62,6 @@ const Contents = styled.div`
     width: 100vw;
      ${(props) => {
        if (props.full) {
-         console.log(1111122)
          return "width: 100vw;";
        }
      }}

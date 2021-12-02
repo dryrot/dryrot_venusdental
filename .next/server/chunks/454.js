@@ -70,7 +70,6 @@ const Contents = styled_components__WEBPACK_IMPORTED_MODULE_1___default().div.wi
     width: 100vw;
      ${props => {
   if (props.full) {
-    console.log(1111122);
     return "width: 100vw;";
   }
 }}
