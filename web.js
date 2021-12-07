@@ -1,29 +1,22 @@
 const express = require("express");
 const next = require("next");
 const approot = require("app-root-path");
-const mysql = require("mysql");
-const connection = mysql.createConnection({
-  host: "venusdental.co.kr",
-  user: "dryrot",
-  password: "Dryrot1225!db",
-  database: "dryrot",
-  port: "3306",
-});
+const bodyParser = require("body-parser");
+const bcrypt = require("bcrypt");
 
-connection.connect();
-
-connection.query("SELECT * from REVIEW", (error, rows, fields) => {
-  if (error) throw error;
-  console.log("REVIEW info is: ", rows);
-});
-
-connection.end();
+const db = require("./models");
+db.sequelize
+  .sync()
+  .then(() => {
+    console.log("DB SUCCESS");
+  })
+  .catch(console.log);
 
 console.log(
-  "=============================2021 12 01============================="
+  "=============================2021 12 07============================="
 );
 
-const app = next({ dev: false, dir: approot.path });
+const app = next({ dev: true, dir: approot.path });
 const handle = app.getRequestHandler();
 
 app
@@ -31,28 +24,32 @@ app
   .then(() => {
     const server = express();
 
-    // server.get("/p/:id", (req, res) => {
-    //   const actualPage = "post";
-    //   const queryParams = { title: req.params.id };
-    //   app.render(req, res, actualPage, queryParams);
-    // });
-
-    server.get("*", (req, res) => {
-      return handle(req, res);
-    });
+    server.use(bodyParser.json());
 
     server.get("/", (req, res) => {
       return app.render(req, res, "/");
     });
 
-    server.get("/Review/review", (req, res) => {
-      console.log("--------------------");
-      connection.query("SELECT * FROM REVIEW", (error, rows) => {
-        if (error) throw error;
-        console.log("REVIEW IS ---->", rows);
-      });
+    server.post("/review/create", async (req, res, next) => {
+      try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        await db.Review.create({
+          title: req.body.title,
+          author: req.body.author,
+          content: req.body.content,
+          show_yn: req.body.show_yn,
+          password: hashedPassword,
+        });
+        res.send("ok");
+      } catch (err) {
+        console.error(err);
+        next(err);
+      }
     });
 
+    server.get("*", (req, res) => {
+      return handle(req, res);
+    });
     server.listen(8001, (err) => {
       if (err) throw err;
       console.log("NOW LISTENING!!!!!");

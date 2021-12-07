@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
+import { createReview } from "../pages/Review/fetch";
 
 const WriteBox = styled.div`
   position: relative;
@@ -26,6 +27,7 @@ const WTextBox = styled.div`
   textarea {
     font-family: noto_serif;
     border: 1px solid #ccc;
+    outline: none;
   }
   input {
     padding-left: 12px;
@@ -85,20 +87,53 @@ const SubmitButton = styled.div`
   cursor: pointer;
 `;
 
+const PasswordBox = styled.input`
+  width: 100px;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-right: 20px;
+  outline: none;
+  font-size: ${(props) => props.theme.mFontSize.reviewSmall};
+  font-family: noto_serif;
+`;
+
 const WriteArea = (props) => {
+  const titleRef = useRef(null);
+  const authorRef = useRef(null);
+  const contentRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const submitReview = () => {
+    const param = {
+      title: titleRef.current.value,
+      author: authorRef.current.value,
+      content: contentRef.current.value,
+      password: passwordRef.current.value,
+      show_yn: "Y",
+    };
+
+    createReview(param);
+  };
+
   return (
     <WriteBox>
       <WriteSlide className={props.writeOpen ? "show" : "hide"}>
         <WTextBox>
           <WTitAuthorBox>
-            <WTitleArea placeholder="제목" />
-            <WAuthorArea placeholder="글쓴이" />
+            <WTitleArea placeholder="제목" ref={titleRef} />
+            <WAuthorArea placeholder="글쓴이" ref={authorRef} />
           </WTitAuthorBox>
-          <WTextArea placeholder="후기를 입력해주세요." />
+          <WTextArea placeholder="후기를 입력해주세요." ref={contentRef} />
         </WTextBox>
 
         <SubmitButtonBox>
-          <SubmitButton>제출</SubmitButton>
+          <PasswordBox
+            placeholder="비밀번호"
+            type="password"
+            ref={passwordRef}
+          />
+          <SubmitButton onClick={() => submitReview()}>제출</SubmitButton>
         </SubmitButtonBox>
       </WriteSlide>
     </WriteBox>
