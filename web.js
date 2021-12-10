@@ -2,7 +2,6 @@ const express = require("express");
 const next = require("next");
 const approot = require("app-root-path");
 const bodyParser = require("body-parser");
-const bcrypt = require("bcrypt");
 
 const db = require("./models");
 db.sequelize
@@ -32,13 +31,13 @@ app
 
     server.post("/review/create", async (req, res, next) => {
       try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        // const hashedPassword = await bcrypt.hash(req.body.password, 10);
         await db.Review.create({
           title: req.body.title,
           author: req.body.author,
           content: req.body.content,
           show_yn: req.body.show_yn,
-          password: hashedPassword,
+          password: req.body.password,
         });
         res.send("ok");
       } catch (err) {
