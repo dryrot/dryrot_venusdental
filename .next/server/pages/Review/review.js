@@ -19,9 +19,7 @@ const createReview = param => {
 };
 
 const getReview = async () => {
-  console.log('getReview');
   let result = await _axios.default.get("http://" + 'venusdental.co.kr' + "/review/list", {});
-  console.log(22222, result);
   return result.data;
 };
 
@@ -351,9 +349,7 @@ const Review = ({
 };
 
 Review.getInitialProps = async ctx => {
-  console.log('getInit');
   const reviewFetch = await (0,fetch.getReview)();
-  console.log('reviewFetch-->', reviewFetch);
   return {
     review: reviewFetch
   };

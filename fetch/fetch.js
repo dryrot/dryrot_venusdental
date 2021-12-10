@@ -5,9 +5,7 @@ const createReview = (param) => {
 };
 
 const getReview = async () => {
-  console.log('getReview')
   let result = await axios.get("http://" + 'venusdental.co.kr' + "/review/list", {});
-  console.log(22222, result)
   return result.data;
 };
 
