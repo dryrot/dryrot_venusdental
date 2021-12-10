@@ -15,12 +15,12 @@ var _axios = _interopRequireDefault(__webpack_require__(2376));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const createReview = param => {
-  return _axios.default.post("http://" + 'localhost:8001' + "/review/create", param);
+  return _axios.default.post("http://" + 'venusdental.co.kr' + "/review/create", param);
 };
 
 const getReview = async () => {
   console.log('getReview');
-  let result = await _axios.default.get("http://" + 'localhost:8001' + "/review/list", {});
+  let result = await _axios.default.get("http://" + 'venusdental.co.kr' + "/review/list", {});
   console.log(22222, result);
   return result.data;
 };

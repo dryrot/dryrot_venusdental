@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const createReview = (param) => {
-  return axios.post("http://" + 'localhost:8001' + "/review/create", param);
+  return axios.post("http://" + 'venusdental.co.kr' + "/review/create", param);
 };
 
 const getReview = async () => {
   console.log('getReview')
-  let result = await axios.get("http://" + 'localhost:8001' + "/review/list", {});
+  let result = await axios.get("http://" + 'venusdental.co.kr' + "/review/list", {});
   console.log(22222, result)
   return result.data;
 };
