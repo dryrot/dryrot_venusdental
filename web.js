@@ -16,7 +16,7 @@ console.log(
   "=============================2021 12 07============================="
 );
 
-const app = next({ dev: true, dir: approot.path });
+const app = next({ dev: false, dir: approot.path });
 const handle = app.getRequestHandler();
 
 app
