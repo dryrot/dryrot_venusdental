@@ -14,12 +14,16 @@ var _axios = _interopRequireDefault(__webpack_require__(2376));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const createReview = param => {
-  return _axios.default.post("http://" + 'venusdental.co.kr' + "/review/create", param);
+let prod = "venusdental.co.kr";
+let dev = "localhost:8001";
+
+const createReview = async param => {
+  let result = await _axios.default.post("http://" + prod + "/review/create", param);
+  return result;
 };
 
 const getReview = async () => {
-  let result = await _axios.default.get("http://" + 'venusdental.co.kr' + "/review/list", {});
+  let result = await _axios.default.get("http://" + prod + "/review/list", {});
   return result.data;
 };
 
@@ -127,7 +131,7 @@ const WriteArea = props => {
   const contentRef = (0,external_react_.useRef)(null);
   const passwordRef = (0,external_react_.useRef)(null);
 
-  const submitReview = () => {
+  const submitReview = async () => {
     const param = {
       title: titleRef.current.value,
       author: authorRef.current.value,
@@ -135,7 +139,26 @@ const WriteArea = props => {
       password: passwordRef.current.value,
       show_yn: "Y"
     };
-    (0,fetch.createReview)(param);
+    const paramName = ["제목", "글쓴이", "내용", "비밀번호"];
+    let isOkay = true;
+    let missedIdx = "";
+    let paramKeys = Object.keys(param);
+
+    for (let i = 0; paramKeys.length > i; i++) {
+      if (param[paramKeys[i]] === "") {
+        isOkay = false;
+        missedIdx = i;
+        break;
+      }
+    }
+
+    if (isOkay === true) {
+      const createFetch = await (0,fetch.createReview)(param);
+
+      if (createFetch.status === 200) {
+        props.refreshReview();
+      }
+    } else alert(paramName[missedIdx] + "를 입력해주세요.");
   };
 
   return /*#__PURE__*/jsx_runtime_.jsx(WriteBox, {
@@ -182,7 +205,7 @@ const WriteArea = props => {
 
 
 
-const WriteButtonBox = () => {
+const WriteButtonBox = props => {
   const {
     0: writeOpen,
     1: setWriteOpen
@@ -222,7 +245,8 @@ const WriteButtonBox = () => {
         })
       })]
     }), /*#__PURE__*/jsx_runtime_.jsx(components_WriteArea, {
-      writeOpen: writeOpen
+      writeOpen: writeOpen,
+      refreshReview: props.refreshReview
     })]
   });
 };
@@ -230,10 +254,11 @@ const WriteButtonBox = () => {
 const Review = ({
   review
 }) => {
-  console.log(review);
   const reviewJson = Review_review;
-  let reviewList = (0,external_react_.useRef)([...review, ...reviewJson]);
-  console.log(reviewList);
+  let {
+    0: reviewList,
+    1: setReviewList
+  } = (0,external_react_.useState)([...review, ...reviewJson]);
   const Title = external_styled_components_default().div.withConfig({
     displayName: "review__Title",
     componentId: "sc-588jn-1"
@@ -304,10 +329,12 @@ const Review = ({
     theme
   }) => theme.tablet`
         width: calc(100% - 10%);
-       `); // useEffect(async () => {
-  //   let reviewFetch = await getReview();
-  //   reviewList = [...reviewJson, ...reviewFetch];
-  // }, []);
+       `);
+
+  const refreshReview = async () => {
+    const reviewFetch = await (0,fetch.getReview)();
+    setReviewList([...reviewFetch, ...reviewJson]);
+  };
 
   return /*#__PURE__*/(0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
     children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)((head_default()), {
@@ -332,7 +359,12 @@ const Review = ({
         })
       }), /*#__PURE__*/jsx_runtime_.jsx(BoardBack, {
         children: /*#__PURE__*/(0,jsx_runtime_.jsxs)(BoardBox, {
-          children: [/*#__PURE__*/jsx_runtime_.jsx(WriteButtonBox, {}), reviewList.current.map((item, idx) => {
+          children: [/*#__PURE__*/jsx_runtime_.jsx(WriteButtonBox, {
+            refreshReview: () => {
+              console.log('refresh!!!!!!!!!!!!!!!1');
+              refreshReview();
+            }
+          }), reviewList.map((item, idx) => {
             let boxId = `review_${idx}`;
             return /*#__PURE__*/jsx_runtime_.jsx(reviewOne.default, {
               review: item,

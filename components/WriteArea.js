@@ -111,7 +111,7 @@ const WriteArea = (props) => {
   const contentRef = useRef(null);
   const passwordRef = useRef(null);
 
-  const submitReview = () => {
+  const submitReview = async () => {
     const param = {
       title: titleRef.current.value,
       author: authorRef.current.value,
@@ -119,7 +119,23 @@ const WriteArea = (props) => {
       password: passwordRef.current.value,
       show_yn: "Y",
     };
-    createReview(param);
+    const paramName = ["제목", "글쓴이", "내용", "비밀번호"];
+    let isOkay = true;
+    let missedIdx = "";
+    let paramKeys = Object.keys(param);
+    for (let i = 0; paramKeys.length > i; i++) {
+      if (param[paramKeys[i]] === "") {
+        isOkay = false;
+        missedIdx = i;
+        break;
+      }
+    }
+    if (isOkay === true) {
+      const createFetch = await createReview(param);
+      if (createFetch.status === 200) {
+        props.refreshReview();
+      }
+    } else alert(paramName[missedIdx] + "를 입력해주세요.");
   };
 
   return (

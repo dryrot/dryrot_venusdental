@@ -38,8 +38,9 @@ app
           content: req.body.content,
           show_yn: req.body.show_yn,
           password: req.body.password,
+        }).then((data) => {
+          res.status(200).json(data);
         });
-        res.send("ok");
       } catch (err) {
         console.error(err);
         next(err);
@@ -53,7 +54,6 @@ app
           where: { show_yn: "Y" },
           order: [["create_dt", "DESC"]],
         }).then((data) => {
-          console.log(data);
           res.status(200).json(data);
         });
       } catch (err) {

@@ -6,7 +6,7 @@ import ReviewJson from "./review.json";
 import ReviewOne from "./reviewOne";
 import WriteArea from "../../components/WriteArea";
 import { getReview } from "../../fetch/fetch";
-const WriteButtonBox = () => {
+const WriteButtonBox = (props) => {
   const [writeOpen, setWriteOpen] = useState(false);
   const WriteButton = styled.div`
     display: flex;
@@ -74,17 +74,15 @@ const WriteButtonBox = () => {
           </span>
         )}
       </WriteButton>
-      <WriteArea writeOpen={writeOpen} />
+      <WriteArea writeOpen={writeOpen} refreshReview={props.refreshReview} />
     </>
   );
 };
 
 const Review = ({ review }) => {
-  console.log(review);
-
   const reviewJson = ReviewJson;
-  let reviewList = useRef([...review, ...reviewJson]);
-  console.log(reviewList);
+  let [reviewList, setReviewList] = useState([...review, ...reviewJson]);
+
   const Title = styled.div`
     display: flex;
     justify-content: center;
@@ -173,10 +171,10 @@ const Review = ({ review }) => {
        `}
   `;
 
-  // useEffect(async () => {
-  //   let reviewFetch = await getReview();
-  //   reviewList = [...reviewJson, ...reviewFetch];
-  // }, []);
+  const refreshReview = async () => {
+    const reviewFetch = await getReview();
+    setReviewList([...reviewFetch, ...reviewJson]);
+  };
 
   return (
     <>
@@ -202,8 +200,13 @@ const Review = ({ review }) => {
         </ContentsBox>
         <BoardBack>
           <BoardBox>
-            <WriteButtonBox />
-            {reviewList.current.map((item, idx) => {
+            <WriteButtonBox
+              refreshReview={() => {
+                console.log('refresh!!!!!!!!!!!!!!!1')
+                refreshReview();
+              }}
+            />
+            {reviewList.map((item, idx) => {
               let boxId = `review_${idx}`;
               return (
                 <ReviewOne
