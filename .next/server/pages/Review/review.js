@@ -18,12 +18,12 @@ let prod = "venusdental.co.kr";
 let dev = "localhost:8001";
 
 const createReview = async param => {
-  let result = await _axios.default.post("http://" + prod + "/review/create", param);
+  let result = await _axios.default.post("http://" + dev + "/review/create", param);
   return result;
 };
 
 const getReview = async () => {
-  let result = await _axios.default.get("http://" + prod + "/review/list", {});
+  let result = await _axios.default.get("http://" + dev + "/review/list", {});
   return result.data;
 };
 
@@ -168,20 +168,24 @@ const WriteArea = props => {
         children: [/*#__PURE__*/(0,jsx_runtime_.jsxs)(WTitAuthorBox, {
           children: [/*#__PURE__*/jsx_runtime_.jsx(WTitleArea, {
             placeholder: "\uC81C\uBAA9",
-            ref: titleRef
+            ref: titleRef,
+            autocomplete: "off"
           }), /*#__PURE__*/jsx_runtime_.jsx(WAuthorArea, {
             placeholder: "\uAE00\uC4F4\uC774",
-            ref: authorRef
+            ref: authorRef,
+            autocomplete: "off"
           })]
         }), /*#__PURE__*/jsx_runtime_.jsx(WTextArea, {
           placeholder: "\uD6C4\uAE30\uB97C \uC785\uB825\uD574\uC8FC\uC138\uC694.",
-          ref: contentRef
+          ref: contentRef,
+          autocomplete: "off"
         })]
       }), /*#__PURE__*/(0,jsx_runtime_.jsxs)(SubmitButtonBox, {
         children: [/*#__PURE__*/jsx_runtime_.jsx(PasswordBox, {
           placeholder: "\uBE44\uBC00\uBC88\uD638",
           type: "password",
-          ref: passwordRef
+          ref: passwordRef,
+          autocomplete: "off"
         }), /*#__PURE__*/jsx_runtime_.jsx(SubmitButton, {
           onClick: () => submitReview(),
           children: "\uC81C\uCD9C"

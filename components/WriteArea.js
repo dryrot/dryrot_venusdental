@@ -143,10 +143,18 @@ const WriteArea = (props) => {
       <WriteSlide className={props.writeOpen ? "show" : "hide"}>
         <WTextBox>
           <WTitAuthorBox>
-            <WTitleArea placeholder="제목" ref={titleRef} />
-            <WAuthorArea placeholder="글쓴이" ref={authorRef} />
+            <WTitleArea placeholder="제목" ref={titleRef} autocomplete="off" />
+            <WAuthorArea
+              placeholder="글쓴이"
+              ref={authorRef}
+              autocomplete="off"
+            />
           </WTitAuthorBox>
-          <WTextArea placeholder="후기를 입력해주세요." ref={contentRef} />
+          <WTextArea
+            placeholder="후기를 입력해주세요."
+            ref={contentRef}
+            autocomplete="off"
+          />
         </WTextBox>
 
         <SubmitButtonBox>
@@ -154,6 +162,7 @@ const WriteArea = (props) => {
             placeholder="비밀번호"
             type="password"
             ref={passwordRef}
+            autocomplete="off"
           />
           <SubmitButton onClick={() => submitReview()}>제출</SubmitButton>
         </SubmitButtonBox>
