@@ -223,7 +223,9 @@ const Review = ({ review }) => {
 };
 
 Review.getInitialProps = async (ctx) => {
+  console.log('getInit')
   const reviewFetch = await getReview();
+  console.log('reviewFetch-->', reviewFetch);
   return { review: reviewFetch };
 };
 
