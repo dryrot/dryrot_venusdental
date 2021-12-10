@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Head from "next/head";
 import AppLayout from "../../components/AppLayout";
 import styled from "styled-components";
 import ReviewJson from "./review.json";
 import ReviewOne from "./reviewOne";
 import WriteArea from "../../components/WriteArea";
-
+import { getReview } from "../../fetch/fetch";
 const WriteButtonBox = () => {
   const [writeOpen, setWriteOpen] = useState(false);
-
   const WriteButton = styled.div`
     display: flex;
     align-items: center;
@@ -38,10 +37,14 @@ const WriteButtonBox = () => {
       margin-bottom: 2px;
       color: ${(props) => props.theme.lightBeige};
     }
-    
+
     ._close:hover {
       color: ${(props) => props.theme.lightBeige};
     }
+
+    ${({ theme }) => theme.mobile`
+    margin: 0px 15px;
+  `}
   `;
 
   return (
@@ -76,8 +79,12 @@ const WriteButtonBox = () => {
   );
 };
 
-const Review = () => {
+const Review = ({ review }) => {
+  console.log(review);
+
   const reviewJson = ReviewJson;
+  let reviewList = useRef([...review, ...reviewJson]);
+  console.log(reviewList);
   const Title = styled.div`
     display: flex;
     justify-content: center;
@@ -166,6 +173,11 @@ const Review = () => {
        `}
   `;
 
+  // useEffect(async () => {
+  //   let reviewFetch = await getReview();
+  //   reviewList = [...reviewJson, ...reviewFetch];
+  // }, []);
+
   return (
     <>
       <Head>
@@ -191,7 +203,7 @@ const Review = () => {
         <BoardBack>
           <BoardBox>
             <WriteButtonBox />
-            {reviewJson.map((item, idx) => {
+            {reviewList.current.map((item, idx) => {
               let boxId = `review_${idx}`;
               return (
                 <ReviewOne
@@ -208,6 +220,11 @@ const Review = () => {
       </AppLayout>
     </>
   );
+};
+
+Review.getInitialProps = async (ctx) => {
+  const reviewFetch = await getReview();
+  return { review: reviewFetch };
 };
 
 export default Review;

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import { createReview } from "../pages/Review/fetch";
+import { createReview } from "../fetch/fetch";
 
 const WriteBox = styled.div`
   position: relative;
@@ -35,6 +35,10 @@ const WTextBox = styled.div`
   textarea {
     resize: none;
   }
+  ${({ theme }) => theme.mobile`
+    margin: 0px 15px;
+    width: calc(100% - 28px);
+  `}
 `;
 
 const WTitAuthorBox = styled.div`
@@ -73,6 +77,9 @@ const SubmitButtonBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
+  ${({ theme }) => theme.mobile`
+    margin: 0px 15px;
+  `}
 `;
 
 const SubmitButton = styled.div`
@@ -112,7 +119,6 @@ const WriteArea = (props) => {
       password: passwordRef.current.value,
       show_yn: "Y",
     };
-
     createReview(param);
   };
 

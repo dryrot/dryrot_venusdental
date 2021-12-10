@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "dryrot",
+    "password": "Dryrot1225!db",
+    "database": "dryrot",
+    "host": "venusdental.co.kr",
+    "dialect": "mysql",
+    "port": "3306"
+  },
+  "test": {
+    "username": "dryrot",
+    "password": "Dryrot1225!db",
+    "database": "dryrot",
+    "host": "venusdental.co.kr",
+    "dialect": "mysql",
+    "port": "3306"
+  },
+  "production": {
+    "username": "dryrot",
+    "password": "Dryrot1225!db",
+    "database": "dryrot",
+    "host": "venusdental.co.kr",
+    "dialect": "mysql",
+    "port": "3306"
+  }
+}

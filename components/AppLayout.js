@@ -3,6 +3,7 @@ import Navigator from "./Navigator";
 import Footer from "./Footer";
 import RightButton from "./RightButton";
 import styled from "styled-components";
+import LoginButton from "./LoginButton";
 
 const AppLayout = ({ children }, props) => {
   const VLayout = styled.div`
@@ -27,6 +28,7 @@ const AppLayout = ({ children }, props) => {
 
   return (
     <VLayout>
+      <LoginButton />
       <VBox>
         <Navigator />
       </VBox>

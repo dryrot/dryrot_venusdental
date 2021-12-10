@@ -21,7 +21,7 @@ const ReviewBox = styled.div`
   `}
   }
   ${({ theme }) => theme.mobile`
-    margin: 50px 15px;
+    margin: 30px 15px;
     width: calc(100% - 28px);
   `}
 `;

@@ -47,6 +47,22 @@ app
       }
     });
 
+    server.get("/review/list", async (req, res, next) => {
+      try {
+        await db.Review.findAll({
+          attributes: ["title", "author", "content"],
+          where: { show_yn: "Y" },
+          order: [["create_dt", "DESC"]],
+        }).then((data) => {
+          console.log(data);
+          res.status(200).json(data);
+        });
+      } catch (err) {
+        console.error(err);
+        next(err);
+      }
+    });
+
     server.get("*", (req, res) => {
       return handle(req, res);
     });
