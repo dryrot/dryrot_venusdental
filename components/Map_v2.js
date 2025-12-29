@@ -46,7 +46,7 @@ const Map2 = (props) => {
         margin-top: 0;
        }
     `}
-       ${({ theme }) => theme.tablet`
+    ${({ theme }) => theme.tablet`
          padding: 10px 15px;
     `}
   `;
@@ -143,12 +143,21 @@ const Map2 = (props) => {
               <br />
             </AddressList>
             <AddressTitle>진료시간</AddressTitle>
-            <AddressList>
+            {/* <AddressList>
               평일 <em>오전 10:30 - 오후 06:00</em>
               <br />
               토요일 오전 <em>10:30 - 오후 02:00</em>
               <br />
               목요일 / 일요일 / 공휴일 휴무
+            </AddressList> */}
+            <AddressList>
+              매주 월요일, 화요일, 일요일 <em>휴무</em>
+              <br />
+              수요일 <em>10:30 - 21:00</em>
+              <br />
+              목요일, 금요일 <em>10:30 - 18:30</em>
+              <br />
+              토요일 <em>10:30 - 16:00</em>
             </AddressList>
             <AddressTitle>문의전화</AddressTitle>
             <AddressList phone>02-3445-9716</AddressList>
