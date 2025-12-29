@@ -65,7 +65,7 @@ app
     server.get("*", (req, res) => {
       return handle(req, res);
     });
-    server.listen(8001, (err) => {
+    server.listen(process.env.PORT || 8001, (err) => {
       if (err) throw err;
       console.log("NOW LISTENING!!!!!, 2025-12-29");
     });
