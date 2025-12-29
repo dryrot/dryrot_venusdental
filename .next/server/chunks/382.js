@@ -482,7 +482,7 @@ const RightButton = () => {
       // window.location.href='http://www.codingfactory.net/';
       window.open("https://blog.naver.com/hhhhsomi/", "_blank");
     } else if (flag === "youtube") {
-      window.open(" https://www.youtube.com/channel/UCMXzQE1LTyEPw3NrNoz5B8A/", "_blank");
+      window.open("https://www.youtube.com/@venustv4613", "_blank");
     }
   };
 
